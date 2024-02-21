@@ -5,53 +5,35 @@ import { Paper } from "@mui/material";
 function CarrouselComponent() {
   var items = [
     {
-      name: "Universidad de Las Palmas de Gran Canaria",
+      name: "Club Deportivo Senderismo Caminando con Ingenio",
       description:
-        "Una institución de educación superior comprometida con la excelencia académica y la investigación innovadora.",
-      img: "./src/assets/imgCarousel/img.png",
+        "Únete a nuestro club y disfruta de la naturaleza",
+      img: "./src/assets/carousel/carousel1.webp",
     },
     {
-      name: "Universidad de La Laguna",
+      name: "Descubriendo Senderos",
       description:
-        "Una universidad con una rica historia y una comunidad académica diversa que promueve el conocimiento y la cultura.",
-      img: "./src/assets/imgCarousel/img1.webp",
+        "Club deportivo creado a finales de 2020, nuestra principal actividad es el Senderismo y el respeto al medio ambiente, con cerca de 300 socios y con mas de 200 licencias federativas en activo.",
+      img: "./src/assets/carousel/carousel2.webp",
     },
     {
-      name: "Universidad Europea de Canarias",
+      name: "Licencia/seguro federativo ",
       description:
-        "Una institución internacional que ofrece programas académicos de alta calidad con un enfoque en la preparación para el mundo laboral.",
-      img: "./src/assets/imgCarousel/img2.jpg",
+        "Desde nuestro club te facilitamos la gestión de la licencia/seguro federativo con la federación Canaria de Montaña «FECAMON«.",
+      img: "./src/assets/carousel/carousel3.webp",
     },
     {
-      name: "Universidad de La Palmas",
+      name: "19 deportes asegurados",
       description:
-        "Una institución centrada en la investigación y la enseñanza de calidad, contribuyendo al desarrollo socioeconómico de la región.",
-      img: "./src/assets/imgCarousel/img3.jpeg",
+        "xcursionismo, campamentos, marchas, senderismo, montaña, marcha nórdica, BTT, rocódromo, canicross, alpinismo, escalada, barrancos, carreras por montaña, espeleología, raquetas, esquí, snow, vías ferratas y splitboard.",
+      img: "./src/assets/carousel/carousel4.webp",
     },
     {
-      name: "Universidad César Manrique",
+      name: "Disfrutas de los mejores paisajes",
       description:
-        "Una institución comprometida con la sostenibilidad y la preservación del entorno, integrando la cultura y la tecnología.",
-      img: "./src/assets/imgCarousel/img4.jpg",
-    },
-    {
-      name: "Universidad de Canarias Occidentales",
-      description:
-        "Una universidad que celebra la diversidad cultural y promueve la colaboración internacional en la investigación y la enseñanza.",
-      img: "./src/assets/imgCarousel/img5.jpg",
-    },
-    {
-      name: "Universidad del Hierro",
-      description:
-        "Una institución enraizada en la comunidad, dedicada a proporcionar oportunidades educativas en la isla de El Hierro.",
-      img: "./src/assets/imgCarousel/img6.jpg",
-    },
-    {
-      name: "Universidad del Teide",
-      description:
-        "Una universidad que ofrece programas académicos innovadores y oportunidades de investigación en un entorno inspirador.",
-      img: "./src/assets/imgCarousel/img7.jpg",
-    },
+        "Con el senderismo discubriras lugares unicos que no podrias disfrutar de otra forma",
+      img: "./src/assets/carousel/carousel5.webp",
+    }
   ];
   return (
     <Carousel>
@@ -63,7 +45,7 @@ function CarrouselComponent() {
 
   function Item(props) {
     return (
-      <div className="container-background">
+      <div className="container-background-carousel">
         <Paper className="container-carousel">
           <h2 className="h2header">{props.item.name}</h2>
           <p>{props.item.description}</p>

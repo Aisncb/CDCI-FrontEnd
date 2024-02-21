@@ -1,8 +1,8 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
-// import Login from "../pages/Login/Login";
+import Login from "../pages/Login/Login";
 // import Root from "../layouts";
 import Home from "../pages/Home/Home";
-//import SignUp from "../pages/Signup/SignUp";
+import SignUp from "../pages/Signup/SignUp";
 import NotFound from "../pages/NotFound/NotFound";
 // import ListBookings from "../pages/Booking/ListBookings/ListBookings";
 // import ListMyBookings from "../pages/Booking/ListMyBookings/ListMyBookings";
@@ -35,6 +35,14 @@ export const router = createBrowserRouter([
     path: "/",
     element: <Home />,
     errorElement: <NotFound />,
+  },
+  {
+    path: "/signup",
+    element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   }
     
   
