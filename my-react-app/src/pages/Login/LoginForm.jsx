@@ -17,31 +17,32 @@ import {
 import { login } from "../../services/login";
 import { Link, useNavigate } from "react-router-dom";
 import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
+import PersonIcon from '@mui/icons-material/Person';
 import Logo from "../../components/Logo/Logo";
 import sideImg from "../../assets/carousel/carousel1.webp";
 
 function LoginForm() {
-  const [email, setEmail] = useState("");
+  const [dni, setDni] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [isVisible, setIsVisible] = useState(false);
   const [error, setError] = useState(false);
-  const [errorEmail, setErrorEmail] = useState({ error: false, message: "" });
+  const [errorDni, setErrorDni] = useState({ error: false, message: "" });
   const [errorPassword, setErrorPassword] = useState({
     error: false,
     message: "",
   });
 
   async function handleClick() {
-    if (validateEmail(email)) {
-      setErrorEmail({
+    if (validateDni(dni)) {
+      setErrorDni({
         error: false,
         message: "",
       });
     } else {
-      setErrorEmail({
+      setErrorDni({
         error: true,
-        message: "Formato de correo electrónico incorrecto",
+        message: "DNI incorrecto",
       });
     }
     if (validatePassword(password)) {
@@ -56,11 +57,11 @@ function LoginForm() {
       });
     }
     try {
-      if (validateEmail(email) && validatePassword(password)) {
-        const loginResponse = await login({ email, password });
+      if (validateDni(dni) && validatePassword(password)) {
+        const loginResponse = await login({ dni, password });
         localStorage.setItem("token", loginResponse.data.token);
         localStorage.setItem("role", loginResponse.data.role);
-        loginResponse.data.role === "admin" ? navigate("/dashboard/listBookings") : navigate("/dashboard/listmybookings");
+        loginResponse.data.role === "administrador" ? navigate("/dashboard/listBookings") : navigate("/dashboard/listmybookings");
       }
     } catch (error) {
       //Handle the error
@@ -68,9 +69,9 @@ function LoginForm() {
     }
   }
 
-  function validateEmail(email) {
-    const regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    return regex.test(email);
+  function validateDni(dni) {
+    const regex = /^[0-9]{8}[A-Za-z]$/;
+    return regex.test(dni);
   }
 
   function validatePassword(password) {
@@ -91,23 +92,23 @@ function LoginForm() {
         ></CardHeader>
         <CardContent>
           <TextField
-            id="email"
-            onChange={(e) => setEmail(e.target.value)}
+            id="dni"
+            onChange={(e) => setDni(e.target.value)}
             sx={{ background: "white", borderRadius: 1 }}
-            type="email"
+            type="dni"
             required
             label="DNI"
             variant="filled"
             margin="dense"
             fullWidth={true}
-            helperText={errorEmail.message}
-            error={errorEmail.error}
+            helperText={errorDni.message}
+            error={errorDni.error}
             placeholder="12345678X"
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start" sx={{ marginTop: 2 }}>
                   <Icon >
-                    <Email />
+                    <PersonIcon />
                   </Icon>
                 </InputAdornment>
               ),

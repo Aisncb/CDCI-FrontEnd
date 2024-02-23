@@ -56,6 +56,11 @@ function SignUpForm() {
     return regex.test(password);
   }
 
+  function validateDni(dni) {
+    const regex = /^[0-9]{8}[A-Za-z]$/;
+    return regex.test(dni);
+  }
+
   async function handleClick(e) {
     e.preventDefault();
 

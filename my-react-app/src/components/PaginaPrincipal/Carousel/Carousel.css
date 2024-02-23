@@ -1,5 +1,6 @@
 .container-background-carousel{
   height: 650px;
+  width: 100vw;
 }
 
 .container-carousel{
@@ -31,7 +32,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 130%;
   background-color: #d6e0fc;
   opacity: 0.5;
