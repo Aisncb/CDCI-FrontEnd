@@ -1,6 +1,6 @@
 import { createBrowserRouter, redirect } from "react-router-dom";
 import Login from "../pages/Login/Login";
-// import Root from "../layouts";
+import Root from "../layouts";
 import Home from "../pages/Home/Home";
 import SignUp from "../pages/Signup/SignUp";
 import NotFound from "../pages/NotFound/NotFound";
@@ -12,7 +12,7 @@ import NotFound from "../pages/NotFound/NotFound";
 // import UpdateMyBooking from "../pages/Booking/UpdateMyBooking/UpdateMyBooking";
 // import DeleteBooking from "../pages/Booking/DeleteBooking/DeleteBooking";
 // import DeleteMyBooking from "../pages/Booking/DeleteMyBooking/DeleteMyBooking";
-// import Profile from "../pages/Users/Profile/Profile";
+import Profile from "../pages/Users/Profile/Profile";
 // import ListUsersPage from "../pages/Users/ListUsers/ListUsersPage";
 // import CreateUserPage from "../pages/Users/CreateUser/CreateUserPage";
 // import UpdateUserPage from "../pages/Users/UpdateUser/UpdateUserPage";
@@ -43,7 +43,24 @@ export const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
-  }
+  },{
+    path: "/dashboard/",
+    element: <Root />,
+    loader: () => {
+      if (!localStorage.getItem("token")) {
+        return redirect("/"); //If the user isn't logged in, we redirect to the login page.
+      } else {
+        return null;
+      }
+    },
+    children: [
+      {
+        path: "/dashboard/profile",
+        element: <Profile />
+      },
+    ]
+    
+  },
     
   
 ]);

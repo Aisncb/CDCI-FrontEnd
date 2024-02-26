@@ -25,12 +25,16 @@ import sideImg from '../../assets/carousel/carousel4.webp';
 import Logo from "../../components/Logo/Logo";
 
 function SignUpForm() {
-  const [firstName, setFirstName] = useState("");
-  const [firstNameMsg, setFirstNameMsg] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [address, setAddress] = useState("");
+  const [nombre, setnombre] = useState("");
+  const [nombreMsg, setnombreMsg] = useState("");
+  const [apellido, setapellido] = useState("");
+  const [fechaNacimiento, setFechaNacimiento] = useState("");
+  const [direccion, setdireccion] = useState("");
+  const [telefono, settelefono] = useState("");
   const [email, setEmail] = useState("");
   const [emailMsg, setEmailMsg] = useState("");
+  const [dni, setDni] = useState("");
+  const [dniMsg, setDniMsg] = useState("");
   const [password, setPassword] = useState("");
   const [passwordMsg, setPasswordMsg] = useState("");
   const [retypedPassword, setRetypedPassword] = useState("");
@@ -65,11 +69,11 @@ function SignUpForm() {
     e.preventDefault();
 
     // Checking if first name field has been filled (it is required):
-    if (firstName === '') {
-      setFirstNameMsg('Error. +Info: El campo «Nombre» es de obligada cumplimentación.');
+    if (nombre === '') {
+      setnombreMsg('Error. +Info: El campo «Nombre» es de obligada cumplimentación.');
     } else {
       // Resetting state variable to make the message disappear in case the user keys in a valid input:
-      setFirstNameMsg('');
+      setnombreMsg('');
       // Checking whether the email has the proper format:
       if (!validateEmail(email)) {
         setEmailMsg('Error. +Info: El campo «Correo electrónico» no cumple el formato solicitado (user@email.com).');
@@ -77,6 +81,12 @@ function SignUpForm() {
         // Resetting state variable to make the message disappear in case the user keys in a valid input:
         setEmailMsg('');
         // Checking whether the password has the proper format:
+        if (!validateDni(dni)) {
+          setDniMsg('Error. +Info: El campo «Dni» no cumple el formato solicitado (12345678x).');
+        } else {
+          // Resetting state variable to make the message disappear in case the user keys in a valid input:
+          setDniMsg('');
+          // Checking whether the password has the proper format:
         if (!validatePassword(password)) {
           if (retypedPasswordMsg.length > 0) {
             // Resetting state variable to make the message disappear:
@@ -95,9 +105,9 @@ function SignUpForm() {
           } else {
             // Data will only be sent after having validated all the required fields pointed out above: 
             try {
-              const { data } = await signup({ firstName, lastName, address, email, password });
+              const { data } = await signup({ nombre, apellido, fechaNacimiento, direccion, telefono, email, dni, password });
               localStorage.setItem('token', data.token);
-              localStorage.setItem('role', data.user.role);
+              localStorage.setItem('rol', data.user.rol);
               setUserRegistered(true);
               // Setting inputError variable to false in order to make the Alert message disappear (in case it is being shown
               // on the screen)
@@ -123,6 +133,7 @@ function SignUpForm() {
 
       }
     }
+    }
   }
 
   return (
@@ -137,7 +148,7 @@ function SignUpForm() {
         <CardContent>
           <TextField
             className="textfield"
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={(e) => setnombre(e.target.value)}
             type="text"
             label="Nombre"
             margin="dense"
@@ -148,14 +159,15 @@ function SignUpForm() {
             variant="filled"
           ></TextField>
 
-          {firstNameMsg.includes('Error') && <Alert severity="error">{firstNameMsg}</Alert>}
+          {nombreMsg.includes('Error') && <Alert severity="error">{nombreMsg}</Alert>}
 
           <TextField
             className="textfield"
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={(e) => setapellido(e.target.value)}
             type="text"
             label="Apellidos"
             margin="dense"
+            required
             fullWidth={true}
             InputLabelProps={{ style: { color: 'black', fontWeight: 'bolder', fontSize: 20 } }}
             variant="filled"
@@ -163,10 +175,35 @@ function SignUpForm() {
 
           <TextField
             className="textfield"
-            onChange={(e) => setAddress(e.target.value)}
+            onChange={(e) => setFechaNacimiento(e.target.value)}
+            type="date"
+            label="Fecha de Nacimiento"
+            margin="dense"
+            required
+            fullWidth={true}
+            InputLabelProps={{ style: { color: 'black', fontWeight: 'bolder', fontSize: 20 } }}
+            variant="filled"
+          ></TextField>
+
+          <TextField
+            className="textfield"
+            onChange={(e) => setdireccion(e.target.value)}
             type="text"
             label="Dirección"
             margin="dense"
+            required
+            fullWidth={true}
+            InputLabelProps={{ style: { color: 'black', fontWeight: 'bolder', fontSize: 20 } }}
+            variant="filled"
+          ></TextField>
+
+          <TextField
+            className="textfield"
+            onChange={(e) => settelefono(e.target.value)}
+            type="text"
+            label="Telefono"
+            margin="dense"
+            required
             fullWidth={true}
             InputLabelProps={{ style: { color: 'black', fontWeight: 'bolder', fontSize: 20 } }}
             variant="filled"
@@ -186,6 +223,21 @@ function SignUpForm() {
           ></TextField>
 
           {emailMsg.includes('Error') && <Alert severity="error">{emailMsg}</Alert>}
+
+          <TextField
+            className="textfield"
+            onChange={(e) => setDni(e.target.value)}
+            type="text"
+            label="DNI"
+            margin="dense"
+            required
+            fullWidth={true}
+            InputLabelProps={{ style: { color: 'black', fontWeight: 'bolder', fontSize: 20 } }}
+            placeholder="El DNI ha de cumplir el siguiente formato de ejemplo: 12345678x"
+            variant="filled"
+          ></TextField>
+
+          {dniMsg.includes('Error') && <Alert severity="error">{dniMsg}</Alert>}
 
           <TextField
             className="textfield"

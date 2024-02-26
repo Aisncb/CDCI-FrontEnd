@@ -3,7 +3,6 @@ import "./Noticias.css";
 
 function Noticias({noticias}) {
 
-  console.log(noticias)
   return (
     <>
       <div className="cointainer-Noticias">
