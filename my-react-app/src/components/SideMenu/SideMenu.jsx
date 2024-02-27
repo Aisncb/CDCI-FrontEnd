@@ -89,7 +89,7 @@ function SideMenu() {
           </Link>
         ))}
       </List>
-      {role==="admin" && (<><Divider />
+      {role==="administrador" && (<><Divider />
       <List className="btnMenu">
         {menuItemsUsuario.map((item) => (
           <Link key={item.index} to={item.link} className="linkMenu">

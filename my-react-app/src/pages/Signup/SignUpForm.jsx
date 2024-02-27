@@ -47,7 +47,7 @@ function SignUpForm() {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate("/dashboard/listmybookings");
+    navigate("/dashboard");
   }
 
   function validateEmail(userEmail) {
@@ -105,9 +105,9 @@ function SignUpForm() {
           } else {
             // Data will only be sent after having validated all the required fields pointed out above: 
             try {
-              const { data } = await signup({ nombre, apellido, fechaNacimiento, direccion, telefono, email, dni, password });
-              localStorage.setItem('token', data.token);
-              localStorage.setItem('rol', data.user.rol);
+              const signupResponse = await signup({ nombre, apellido, fechaNacimiento, direccion, telefono, email, dni, password });
+              localStorage.setItem('token', signupResponse.data.token);
+              localStorage.setItem('role', signupResponse.data.role);
               setUserRegistered(true);
               // Setting inputError variable to false in order to make the Alert message disappear (in case it is being shown
               // on the screen)

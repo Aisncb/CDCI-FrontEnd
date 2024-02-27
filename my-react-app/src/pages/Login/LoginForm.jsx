@@ -61,7 +61,7 @@ function LoginForm() {
         const loginResponse = await login({ dni, password });
         localStorage.setItem("token", loginResponse.data.token);
         localStorage.setItem("role", loginResponse.data.role);
-        loginResponse.data.role === "administrador" ? navigate("/dashboard/listBookings") : navigate("/dashboard");
+        loginResponse.data.role === "administrador" ? navigate("/dashboard") : navigate("/dashboard");
       }
     } catch (error) {
       //Handle the error
