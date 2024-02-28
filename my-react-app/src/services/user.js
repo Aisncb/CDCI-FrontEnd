@@ -28,15 +28,16 @@ export async function createUser(user) {
 }
 
 export async function updateUser(user) {
+  console.log(user)
  
   const response  = await api.put(`/usuario/${user.id}`,{//ruta del backend dinamica y pasamos el resto de datos como objeto json
     
-      firstName: user.firstName,
-      lastName: user.lastName,
-      address: user.address,
+      nombre: user.firstName,
+      apellido: user.lastName,
+      direccion: user.address,
       email: user.email,
       password: user.password,
-      role: user.role,
+      rol: user.role,
     
   },
   {
@@ -44,6 +45,7 @@ export async function updateUser(user) {
       Authorization: localStorage.getItem("token"), 
     },
   });
+
   return response
 }
 

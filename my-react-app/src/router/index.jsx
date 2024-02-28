@@ -13,10 +13,10 @@ import NotFound from "../pages/NotFound/NotFound";
 // import DeleteBooking from "../pages/Booking/DeleteBooking/DeleteBooking";
 // import DeleteMyBooking from "../pages/Booking/DeleteMyBooking/DeleteMyBooking";
 import Profile from "../pages/Users/Profile/Profile";
-// import ListUsersPage from "../pages/Users/ListUsers/ListUsersPage";
-// import CreateUserPage from "../pages/Users/CreateUser/CreateUserPage";
-// import UpdateUserPage from "../pages/Users/UpdateUser/UpdateUserPage";
-// import DeleteUserComponent from "../components/Users/DeleteUser/DeleteUserComponent";
+import ListUsersPage from "../pages/Users/ListUsers/ListUsersPage";
+import CreateUserPage from "../pages/Users/CreateUser/CreateUserPage";
+import UpdateUserPage from "../pages/Users/UpdateUser/UpdateUserPage";
+import DeleteUserComponent from "../components/Users/DeleteUser/DeleteUserComponent";
 // import ListEquipment from "../pages/Equipment/ListEquipment/ListEquipment";
 // import AddEquipment from "../pages/Equipment/AddEquipment/AddEquipment";
 // import UpdateEquipment from "../pages/Equipment/UpdateEquipment/UpdateEquipment";
@@ -57,6 +57,22 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/profile",
         element: <Profile />
+      },
+      {
+        path: "/dashboard/listUsers",
+        element: <ListUsersPage />,
+      },
+      {
+        path: "/dashboard/createUser",
+        element: <CreateUserPage />,
+      },
+      {
+        path: "/dashboard/updateUser",
+        element: <UpdateUserPage />,
+      },
+      {
+        path: "/dashboard/deleteUser",
+        element: <DeleteUserComponent />
       },
     ]
     

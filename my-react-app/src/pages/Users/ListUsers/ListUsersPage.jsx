@@ -7,7 +7,7 @@ function ListUsersPage() {
 
   async function getUsers() {
     const data = await getListUsers();
-    setUSer(data.users); //data.users accede a users que es el array de usuarios y lo almacena en user(singular) variable de estado
+    setUSer(data.usuarios); //data.users accede a users que es el array de usuarios y lo almacena en user(singular) variable de estado
   }
 
   useEffect(() => {

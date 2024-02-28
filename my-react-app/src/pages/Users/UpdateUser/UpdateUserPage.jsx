@@ -1,38 +1,23 @@
 // CreateUserPage.jsx
 import UpdateUserComponent from '../../../components/Users/UpdateUser/UpdateUserComponent'
-import { useState } from "react";
-import { updateUser } from "../../../services/user";
+import { useEffect, useState } from "react";
+import { getListUsers } from "../../../services/user";
 
 function UpdateUserPage() {
 
-  const [user, setUser] = useState({
-    id: "",
-    firstName: "",
-    lastName: "",
-    address: "",
-    email: "",
-    password: "",
-    role:"",
-  });
+  const [user, setUSer] = useState([]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await updateUser(user);
-    setUser({
-      id: "",
-      firstName: "",
-      lastName: "",
-      address: "",
-      email: "",
-      password: "",
-      role:"",
-    })
-  };
+  async function getUsers() {
+    const data = await getListUsers();
+    setUSer(data.usuarios); //data.users accede a users que es el array de usuarios y lo almacena en user(singular) variable de estado
+  }
+
+  useEffect(() => {
+    getUsers();
+  }, []);
 
   return (
     <UpdateUserComponent
-      handleSubmit={handleSubmit}
-      setUser={setUser}
       user={user}
     />
   );
