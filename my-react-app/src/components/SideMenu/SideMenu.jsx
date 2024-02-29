@@ -51,10 +51,10 @@ function SideMenu() {
   ];
 
   const menuItemsNoticias = [
-    { icon: <ListIcon />, text: 'Ver Noticias', link: '/dashboard/listUsers', index: 5 },
-    (role==="administrador") &&{ icon: <AddIcon />, text: 'Crear Noticias', link: '/dashboard/createUser', index: 6 },
-    (role==="administrador") &&{ icon: <ChangeCircleIcon />, text: 'Modificar Noticias', link: '/dashboard/updateUser', index: 7 },
-    (role==="administrador") &&{ icon: <DeleteIcon />, text: 'Eliminar Noticias', link: '/dashboard/deleteUser', index: 8 },
+    { icon: <ListIcon />, text: 'Ver Noticias', link: '/dashboard/listNoticia', index: 5 },
+    (role==="administrador") &&{ icon: <AddIcon />, text: 'Crear Noticias', link: '/dashboard/createNoticia', index: 6 },
+    (role==="administrador") &&{ icon: <ChangeCircleIcon />, text: 'Modificar Noticias', link: '/dashboard/updateNoticia', index: 7 },
+    (role==="administrador") &&{ icon: <DeleteIcon />, text: 'Eliminar Noticias', link: '/dashboard/deleteNoticia', index: 8 },
   ];
 
   const menuItemsActividades = [

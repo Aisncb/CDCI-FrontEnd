@@ -6,6 +6,11 @@ import { getListUsers } from "../../../services/user";
 function UpdateUserPage() {
 
   const [user, setUSer] = useState([]);
+  const [refres, setRefres] = useState(false)
+
+  function handleRefres() {
+    setRefres(!refres)
+  }
 
   async function getUsers() {
     const data = await getListUsers();
@@ -14,11 +19,12 @@ function UpdateUserPage() {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [refres]);
 
   return (
     <UpdateUserComponent
       user={user}
+      functRefres={handleRefres}
     />
   );
 }

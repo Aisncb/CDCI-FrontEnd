@@ -43,7 +43,6 @@ export default function DeleteUserComponent() {
     async function getUsers(){
       const data = await getListUsers();
       setUsers(data.usuarios);
-      console.log(data.usuarios)
     }
   
   

@@ -17,10 +17,10 @@ import ListUsersPage from "../pages/Users/ListUsers/ListUsersPage";
 import CreateUserPage from "../pages/Users/CreateUser/CreateUserPage";
 import UpdateUserPage from "../pages/Users/UpdateUser/UpdateUserPage";
 import DeleteUserComponent from "../components/Users/DeleteUser/DeleteUserComponent";
-// import ListEquipment from "../pages/Equipment/ListEquipment/ListEquipment";
-// import AddEquipment from "../pages/Equipment/AddEquipment/AddEquipment";
-// import UpdateEquipment from "../pages/Equipment/UpdateEquipment/UpdateEquipment";
-// import DeleteEquipment from "../pages/Equipment/DeleteEquipment/DeleteEquipment";
+import ListNoticia from "../pages/Noticia/ListNoticias";
+import CreateNoticia from "../pages/Noticia/CreateNoticia.jsx";
+import UpdateNoticia from "../pages/Noticia/UpdateNoticia/UpdateNoticia.jsx";
+import DeleteNoticia from "../components/Noticias/DeleteNoticia/DeleteNoticiaComponent.jsx";
 // import ListClassrooms from "../pages/Classroom/ListClassrooms/ListClassrooms";
 // import AddClassroom from "../pages/Classroom/AddClassroom/AddClassroom";
 // import UpdateClassroom from "../pages/Classroom/UpdateClassroom/UpdateClassroom";
@@ -73,6 +73,22 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/deleteUser",
         element: <DeleteUserComponent />
+      },
+      {
+        path: "/dashboard/listNoticia",
+        element: <ListNoticia />,
+      },
+      {
+        path: "/dashboard/createNoticia",
+        element: <CreateNoticia />,
+      },
+      {
+        path: "/dashboard/updateNoticia",
+        element: <UpdateNoticia />,
+      },
+      {
+        path: "/dashboard/deleteNoticia",
+        element: <DeleteNoticia />
       },
     ]
     
