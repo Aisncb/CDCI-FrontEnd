@@ -21,6 +21,10 @@ import ListNoticia from "../pages/Noticia/ListNoticias";
 import CreateNoticia from "../pages/Noticia/CreateNoticia.jsx";
 import UpdateNoticia from "../pages/Noticia/UpdateNoticia/UpdateNoticia.jsx";
 import DeleteNoticia from "../components/Noticias/DeleteNoticia/DeleteNoticiaComponent.jsx";
+import ListActividad from "../pages/Actividad/ListActividades.jsx";
+import CreateActividad from "../pages/Actividad/CreateActividad.jsx";
+import UpdateActividad from "../pages/Actividad/UpdateActividad/UpdateActividad.jsx";
+// import DeleteActividad from "../components/Actividads/DeleteActividad/DeleteActividadComponent.jsx";
 // import ListClassrooms from "../pages/Classroom/ListClassrooms/ListClassrooms";
 // import AddClassroom from "../pages/Classroom/AddClassroom/AddClassroom";
 // import UpdateClassroom from "../pages/Classroom/UpdateClassroom/UpdateClassroom";
@@ -90,6 +94,22 @@ export const router = createBrowserRouter([
         path: "/dashboard/deleteNoticia",
         element: <DeleteNoticia />
       },
+      {
+        path: "/dashboard/listActividades",
+        element: <ListActividad />,
+      },
+      {
+        path: "/dashboard/addActividad",
+        element: <CreateActividad />,
+      },
+      {
+        path: "/dashboard/updateActividad",
+        element: <UpdateActividad />,
+      },
+      // {
+      //   path: "/dashboard/deleteActividad",
+      //   element: <DeleteActividad />
+      // },
     ]
     
   },

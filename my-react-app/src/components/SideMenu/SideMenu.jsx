@@ -58,24 +58,24 @@ function SideMenu() {
   ];
 
   const menuItemsActividades = [
-    { icon: <ListIcon />, text: 'Ver Actividades', link: '/dashboard/listEquipment', index: 9 },
-    { icon: <AddIcon />, text: 'Crear Actividades', link: '/dashboard/addEquipment', index: 10 },
-    { icon: <ChangeCircleIcon />, text: 'Modificar Actividades', link: '/dashboard/updateEquipment', index: 11 },
-    { icon: <DeleteIcon />, text: 'Eliminar Actividades', link: '/dashboard/deleteEquipment', index: 12 },
+    { icon: <ListIcon />, text: 'Ver Actividades', link: '/dashboard/listActividades', index: 9 },
+    { icon: <AddIcon />, text: 'Crear Actividades', link: '/dashboard/addActividad', index: 10 },
+    { icon: <ChangeCircleIcon />, text: 'Modificar Actividades', link: '/dashboard/updateActividad', index: 11 },
+    { icon: <DeleteIcon />, text: 'Eliminar Actividades', link: '/dashboard/deleteActividad', index: 12 },
   ];
 
   const menuItemsRutas = [
-    (role==="administrador") &&{ icon: <ListIcon />, text: 'Ver Rutas', link: '/dashboard/listClassrooms', index: 13 },
-    (role==="administrador") &&{ icon: <AddIcon />, text: 'Crear Rutas', link: '/dashboard/addClassroom', index: 14 },
-    (role==="administrador") &&{ icon: <ChangeCircleIcon />, text: 'Modificar Rutas', link: '/dashboard/updateClassroom', index: 15 },
-    (role==="administrador") &&{ icon: <DeleteIcon />, text: 'Eliminar Rutas', link: '/dashboard/deleteClassroom', index: 16 },
+    (role==="administrador") &&{ icon: <ListIcon />, text: 'Ver Rutas', link: '/dashboard/listRutas', index: 13 },
+    (role==="administrador") &&{ icon: <AddIcon />, text: 'Crear Rutas', link: '/dashboard/addRuta', index: 14 },
+    (role==="administrador") &&{ icon: <ChangeCircleIcon />, text: 'Modificar Rutas', link: '/dashboard/updateRuta', index: 15 },
+    (role==="administrador") &&{ icon: <DeleteIcon />, text: 'Eliminar Rutas', link: '/dashboard/deleteRuta', index: 16 },
   ];
 
   const menuItemsPagos = [
-    { icon: <ListIcon />, text: 'Ver Pagos', link: '/dashboard/listBuildings', index: 17 },
-    { icon: <AddIcon />, text: 'Crear Pagos', link: '/dashboard/addBuilding', index: 18 },
-    { icon: <ChangeCircleIcon />, text: 'Modificar Pagos', link: '/dashboard/updateBuilding', index: 19 },
-    { icon: <DeleteIcon />, text: 'Eliminar Pagos', link: '/dashboard/deleteBuilding', index: 20 },
+    { icon: <ListIcon />, text: 'Ver Pagos', link: '/dashboard/listPagos', index: 17 },
+    { icon: <AddIcon />, text: 'Crear Pagos', link: '/dashboard/addPago', index: 18 },
+    { icon: <ChangeCircleIcon />, text: 'Modificar Pagos', link: '/dashboard/updatePago', index: 19 },
+    { icon: <DeleteIcon />, text: 'Eliminar Pagos', link: '/dashboard/deletePago', index: 20 },
   ];
 
   return (
